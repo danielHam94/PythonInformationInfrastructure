@@ -1,42 +1,35 @@
 # Daniel Ham
 # Top 100 Movies
 
+# ***********************INSTRUCTIONS***********************
+# Download top100moviesAFI.txt and top100moviesRT.txt from Canvas. 
+# 
+# These contain the Top 100 Movies from the American Film Institute
+# and Rotten Tomatoes, respectively.
+# 
+# Write a program that figures out which movies appear on both lists. 
+# Sets make this easy!
+# 
+# BONUS POINT: Alphabetize your output
+# **********************************************************
 
-# Load file
-with open("top100moviesRT.txt", "r") as f:
-    lines = f.readlines()
+# Open and create set of afi movies
+with open('top100moviesAFI.txt', 'r') as f:
+    afi_movies = set(f.readlines())
 
-for i in range(len(lines)):
-    lines[i] = lines[i].strip()
+# Open and create set of rt movies
+with open('top100moviesRT.txt', 'r') as g:
+    rt_movies = set(g.readlines())
 
-# Print that the file has been loaded
-print("The file 'top100moviesRT.txt' has been loaded.")
-print("It contains the Top 100 movies of all time, according to Rotten Tomatoes.")
 
-# While loop until stop
-while True:
-    # Get input of movie title
-    title = input("Please enter a movie title (or STOP): ")
 
-    if title.upper() == 'STOP':
-        break
 
-    found = False
+print("The movies on both lists are: ")
 
-    # If movie title in list
-    for i in range(len(lines)):
-        # Print index
-        if lines[i] == title:
-            print("That's the #", i, "movie of all time.")
-            found = True
+# Print each movie that is found in BOTH sets of movies
+for movie in sorted(afi_movies & rt_movies):
+    print(movie.strip())
 
-    if not found:
-        print("I couldn't find that movie in the list.")
-            
-        
 
-    # Else
-        # Cant find movie in the list
-    
 
-    
+
