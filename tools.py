@@ -97,11 +97,8 @@ def mean(numbers):
 
 
 # put the swap function here!
-def swap(a_list, x, y):
-    temp = a_list[x]
-    a_list[x] = a_list[y]
-    a_list[y] = temp
-    return a_list
+
+
 
 
 #------------------------------
