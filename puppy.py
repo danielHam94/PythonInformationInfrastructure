@@ -1,10 +1,24 @@
+from tools import *
+
 class Puppy(object):
     """Puppy"""
 
+    names = {}
+
     # Methods
+
+    @staticmethod
+    def dog_names():
+        table_print(("Name", "Times"), sorted(Puppy.names.items()), 7)
+
     def __init__(self, name = "Spot"):
         self.name = name
         self.counter = 0
+        if name in Puppy.names:
+            Puppy.names[name] += 1
+        else:
+            Puppy.names[name] = 1
+            
 
     # str method
     def __str__(self):
@@ -13,19 +27,20 @@ class Puppy(object):
         reply += "Bark Count: " + str(self.counter) + "\n"
         return reply
 
-    # barl method
+    # bark method
     def bark(self):
         self.counter += 1
         print("Bark")
         print(self.name, "has barked", self.counter, "time(s).")
 
 
-
 # main
-puppy1 = Puppy()
+dog1 = Puppy("Spot")
+dog2 = Puppy("Rover")
+dog3 = Puppy("Spot")
+dog4 = Puppy("Rover")
+dog5 = Puppy("Rover")
+dog6 = Puppy("Lassie")
 
-for i in range(5):
-    puppy1.bark()
-
-print(puppy1)
+Puppy.dog_names()
 
