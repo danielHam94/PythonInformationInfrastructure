@@ -1,11 +1,23 @@
 class Robot(object):
 
+    robot_list = []
+
+    @static method
+    def contendors():
+        robots = len(Robot.robot_list)
+        print("There are ", robots, "robots.")
+        if robots:
+            print("Here is a list of them:\n")
+            for robot in Robot.robot_list:
+                print(robot)
+
     def __init__(self, name, weapon, strength):
         print("Robot created!", name, "\n")
         self.name = name
         self.weapon = weapon
         self.strength = strength
         self.online = True
+        Robot.robot_list.append(self)
 
     def __str__(self):
         reply = "-" * 20 + "\n"
@@ -19,6 +31,7 @@ class Robot(object):
             reply += "Status: OFFLINE\n"
         reply += "-" * 20 + "\n"
         return reply
+
 
 #main
 r2d2 = Robot("R2D2", "Beeps", 2)
