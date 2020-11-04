@@ -1,13 +1,23 @@
 # Instructions:
 # COPY YOUR MOVIE CLASS HERE, OR OURS FROM ONSCREEN
 # You don't need the child classes, just Movie
-
-
+class Movie(object):
+    def __init__(self, title, rating):
+        self.title = title
+        self.rating = rating
+        
+    def __str__(self):
+        return self.title + " is rated " + \
+               str(self.rating) + "/10."
 
 # Once you've done that, add methods to override
 # The > and == operators.
 
+    def __gt__(self, other): # overload >, comparison is based on rating
+        return self.rating > other.rating
 
+    def __eq__(self, other): # overload ==, comparison is based on rating
+        return self.rating == other.rating
 
 # WHY DO WE CARE? Adding these override methods
 # will allow you to use .sort() and sorted() on a
