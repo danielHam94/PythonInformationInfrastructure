@@ -44,10 +44,7 @@ class Van(Car):
             print(num, "passengers picked up!")
         else:
             print("There isn't enough room for", num, "more passengers in this van. \n")
-        #the word pass is here to make this otherwise empty
-        #method not cause an error. You can remove it when
-        #you start adding real code here.
-        pass
+
 
 #main (don't change this!)
 transport = Van("Ford", 16)
