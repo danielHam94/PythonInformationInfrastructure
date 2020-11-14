@@ -19,6 +19,7 @@ class Application(Frame):
         self.level = StringVar()
         # The default value should be 'medium' when the program starts!
         # If you don't set a default value, ALL the options will be selected.
+        self.level.set("medium")
 
         Radiobutton(self, text = "Rare", variable = self.level,
                     value = "rare").grid()
@@ -33,10 +34,14 @@ class Application(Frame):
         self.results_txt.grid()
 
     def order_burger(self):
-        # When the user clicks 'Place order', the burger they chose
-        # should be output to the results text box.
-        # Show the cooking level and cheese option.
-        pass
+        message = "Your burger is " + self.level.get()
+        if self.cheese.get():
+            message += " and has cheese on it."
+        else:
+            message += " and does not have cheese on it."
+
+        self.results_txt.delete(0.0, END)
+        self.results_txt.insert(0.0, message)
 
 # main
 root = Tk()
